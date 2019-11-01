@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+//import './styles.css';
 import logo2 from '../img/logo2.png';
 import contacts from '../img/contacts.png';
 import chat from '../img/chat.png';

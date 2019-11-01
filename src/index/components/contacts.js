@@ -1,5 +1,9 @@
 import React from 'react';
-import './styles.css';
+//import './styles.css';
+import Person from './person';
+
+import funnel from '../img/funnel.png';
+import search from '../img/search.png';
 
 
 class Contacts extends React.Component {
@@ -9,17 +13,27 @@ class Contacts extends React.Component {
                 <div className="info">
                     <div className="name-page">chat</div>
                     <div className="sort">
-                        <img className="sort-img" src="img/funnel.png" />
+                        <img className="sort-img" src={funnel} />
                         <span>unread</span>
                     </div>
                 </div>
                 <div className="search">
-                    <img className="img-search" src="img/search.png" />
+                    <img className="img-search" src={search} />
                     <input  name="search" className="search-box" title="search" type="search" placeholder="Search" />
                 </div>
                 <div className="sl-line"></div>
                 <div className="list-of-contact">
-
+                    <Person />
+                    <Person />
+                    <Person />
+                    <Person />
+                    <Person />
+                    <Person />
+                    <Person />
+                    <Person />
+                    <Person />
+                    <Person />
+                    <Person />
                 </div>
             </div>
         )

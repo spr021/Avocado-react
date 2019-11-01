@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Menu from './index/components/menu';
 import Contacts from './index/components/contacts';
+import Chat from './index/components/chat';
+import './index/components/styles.scss';
 import * as serviceWorker from './serviceWorker';
 
 class Container extends React.Component{
@@ -10,6 +12,7 @@ class Container extends React.Component{
              <div className="container">
                 <Menu />
                 <Contacts />
+                <Chat />
              </div>
         )
     }
