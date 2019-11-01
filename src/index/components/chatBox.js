@@ -9,16 +9,16 @@ class ChatBox extends React.Component {
         return (
             <div className="chat-text" id="chat-text">
             <div id="chating">
-                <MyMsg />
-                <MyMsg />
-                <YourMsg />
-                <MyMsg />
-                <MyMsg />
-                <YourMsg />
-                <YourMsg />
-                <MyMsg />
-                <MyMsg />
-                <MyMsg />
+                <MyMsg text='salam' />
+                <MyMsg text='khobu' />
+                <YourMsg text='mmnon' />
+                <MyMsg text='chekhabar' />
+                <MyMsg text='????' />
+                <YourMsg text='salamati' />
+                <YourMsg text='to chekhabar ?' />
+                <MyMsg text='hich' />
+                <MyMsg text='mipelekim' />
+                <MyMsg text=':D' />
             </div>
             </div>
         )

@@ -10,7 +10,7 @@ class YourMsg extends React.Component {
         return (
             <div className="msg-you">
                 <div className="talk-img"><img src={Avatar} /></div>
-                <div className="talk-msg">chekhaba ???</div>
+                <div className="talk-msg">{this.props.text}</div>
             </div>
         )
     }
