@@ -1,0 +1,15 @@
+.loginBox{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    box-shadow: 1px 1px #dfe5ec;
+    border-radius: 5px;
+    border-left: 1px solid #dfe5ec;
+    border-right: 1px solid #dfe5ec;
+    border-bottom: 1px solid #d2dbe3;
+    overflow: hidden;
+    padding: 20px;
+}
