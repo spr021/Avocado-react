@@ -17,7 +17,7 @@ class Menu extends React.Component {
         <div className='menu-item'><img className='img-logo' src={group} /></div>
         <div className='menu-item'><img className='img-logo' src={channel} /></div>
         <div className='menu-item'><img className='img-logo' src={file} /></div>
-        <div className='menu-item'><img className='img-logo' src={settings} /></div>
+        <div className='menu-item menu-item-setting'><img className='img-logo' src={settings} /></div>
       </div>
     )
   }

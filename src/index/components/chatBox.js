@@ -4,20 +4,89 @@ import MyMsg from './myChat'
 import YourMsg from './yourChat'
 
 class ChatBox extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      chatText: [
+        {
+          myText: true,
+          text: 'salam'
+        },
+        {
+          myText: true,
+          text: 'rwq'
+        },
+        {
+          myText: false,
+          text: 'asf'
+        },
+        {
+          myText: false,
+          text: 'vbnk'
+        },
+        {
+          myText: true,
+          text: 'tryykgm'
+        },
+        {
+          myText: false,
+          text: 'dsfdf'
+        },
+        {
+          myText: true,
+          text: 'salfgam'
+        },
+        {
+          myText: false,
+          text: 'dfgdfgs'
+        },
+        {
+          myText: true,
+          text: 'salfgam'
+        },
+        {
+          myText: true,
+          text: 'salfgam'
+        },
+        {
+          myText: true,
+          text: 'salfgam'
+        },
+        {
+          myText: false,
+          text: 'salfgam'
+        },
+        {
+          myText: true,
+          text: 'salfgam'
+        },
+        {
+          myText: false,
+          text: 'salfgam'
+        },
+        {
+          myText: false,
+          text: 'salfgam'
+        },
+        {
+          myText: true,
+          text: 'salfgam'
+        },
+        {
+          myText: false,
+          text: 'salfgam'
+        }
+      ]
+    }
+  }
+
   render () {
     return (
       <div className='chat-text' id='chat-text'>
         <div id='chating'>
-          <MyMsg text='salam' />
-          <MyMsg text='khobu' />
-          <YourMsg text='mmnon' />
-          <MyMsg text='chekhabar' />
-          <MyMsg text='????' />
-          <YourMsg text='salamati' />
-          <YourMsg text='to chekhabar ?' />
-          <MyMsg text='hich' />
-          <MyMsg text='mipelekim' />
-          <MyMsg text=':D' />
+          {this.state.chatText.map((text) => {
+            return (text.myText === true ? <MyMsg text={text.text} /> : <YourMsg text={text.text} />)
+          })}
         </div>
       </div>
     )

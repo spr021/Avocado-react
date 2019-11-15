@@ -62,6 +62,9 @@ $selectandnew: rgb(255,118,85);
         margin: 2px;
     }
 }
+.menu-item-setting{
+    margin-top: 80px;
+}
 .menu-item{
     display: flex;
     flex-direction: row;
@@ -205,7 +208,7 @@ $selectandnew: rgb(255,118,85);
         .new-pm{
             background-color: rgb(196, 21, 15);
             border-radius: 50%;
-            width: 23px;
+            width: 18px;
             text-align: center;
             display: flex;
             flex-direction: row;

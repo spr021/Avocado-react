@@ -15,6 +15,85 @@ import Men3 from '../img/avatars/man-3.png'
 import Men4 from '../img/avatars/man-4.png'
 
 class Contacts extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      contacts: [
+        {
+          imgProfile: Boy,
+          nickName: 'mmd',
+          lastPm: 'saber',
+          datePm: '2 min',
+          newPm: '5'
+        },
+        {
+          imgProfile: Boy1,
+          nickName: 'hamed',
+          lastPm: 'kojayyy ?',
+          datePm: 'yesterday',
+          newPm: '7'
+        },
+        {
+          imgProfile: Girl,
+          nickName: 'sara',
+          lastPm: 'hey',
+          datePm: '5 min',
+          newPm: ''
+        },
+        {
+          imgProfile: Girl1,
+          nickName: 'maryam',
+          lastPm: 'salam alamsa',
+          datePm: '9 min',
+          newPm: '12'
+        },
+        {
+          imgProfile: Men,
+          nickName: 'dfgfh',
+          lastPm: 'hey',
+          datePm: '5 min',
+          newPm: ''
+        },
+        {
+          imgProfile: Girl,
+          nickName: 'cvnbvg',
+          lastPm: 'dgdfghd',
+          datePm: '5 min',
+          newPm: '7'
+        },
+        {
+          imgProfile: Men1,
+          nickName: 'dsgdfbv',
+          lastPm: 'tyjshgfhd',
+          datePm: '5 min',
+          newPm: ''
+        },
+        {
+          imgProfile: Men2,
+          nickName: 'dsfdsf',
+          lastPm: 'fghfdgh',
+          datePm: '5 min',
+          newPm: '2'
+        },
+        {
+          imgProfile: Men3,
+          nickName: 'agfddfgdfg',
+          lastPm: 'treuyt',
+          datePm: '5 min',
+          newPm: ''
+        },
+        {
+          imgProfile: Men4,
+          nickName: 'uykgch',
+          lastPm: 'dgfdfg',
+          datePm: '5 min',
+          newPm: '3'
+        }
+        
+      ]
+    }
+  }
+
   render () {
     return (
       <div className='contacts'>
@@ -31,17 +110,11 @@ class Contacts extends React.Component {
         </div>
         <div className='sl-line' />
         <div className='list-of-contact'>
-          <Person nickName='zahra' datePm='2 min' lastPm='salam' newPm='4' imgProfile={Boy1} />
-          <Person nickName='maryam' datePm='5 min' lastPm='khobi' newPm='2' imgProfile={Girl} />
-          <Person nickName='sara' datePm='2 hour' lastPm='kojayi ?' newPm='' imgProfile={Girl1} />
-          <Person nickName='mmd' datePm='yesterday' lastPm='saber' newPm='' imgProfile={Boy} />
-          <Person nickName='reza' datePm='15 min' lastPm='??????' newPm='1' imgProfile={Men} />
-          <Person nickName='hamid' datePm='just now' lastPm='ali miad ?' newPm='' imgProfile={Men1} />
-          <Person nickName='arman' datePm='3 min' lastPm='miay ?' newPm='' imgProfile={Men2} />
-          <Person nickName='poya' datePm='12 min' lastPm='nmikhay biay' newPm='9' imgProfile={Men3} />
-          <Person nickName='fateme' datePm='just now' lastPm='jozve elec dari' newPm='' imgProfile={Men4} />
-          <Person nickName='arefe' datePm='5 hour' lastPm='kelas kojast' newPm='' imgProfile={Girl} />
-          <Person nickName='mehrdad' datePm='12 hour' lastPm='saber' newPm='3' imgProfile={Boy} />
+          {this.state.contacts.map((conv) => {
+            return (
+              <Person key={conv.datePm} nickName={conv.nickName} datePm={conv.datePm} lastPm={conv.lastPm} newPm={conv.newPm} imgProfile={conv.imgProfile} />
+            )
+          })}
         </div>
       </div>
     )
