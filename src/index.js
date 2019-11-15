@@ -1,28 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Menu from './index/components/menu';
-import Contacts from './index/components/contacts';
-import Chat from './index/components/chat';
-import Loging from './login/login'
-import './index/components/styles.scss';
-import './login/styles.scss';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Login from './login/login'
+import Container from './index/container'
+import './index/components/styles.scss'
+import './login/styles.scss'
+import * as serviceWorker from './serviceWorker'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
 
-class Container extends React.Component{
-    render() {
-        return (
-             <div className="container">
-                <Menu />
-                <Contacts />
-                <Chat />
-             </div>
-        )
-    }
+class App extends React.Component {
+  render () {
+    return (
+      <Router>
+        <Switch>
+          <Route path='/im/'>
+            <Container />
+          </Route>
+          <Route path='/'>
+            <Login />
+          </Route>
+        </Switch>
+      </Router>
+
+    )
+  }
 }
-  
-ReactDOM.render(<Loging />, document.getElementById('root'));
+
+// <Login />
+ReactDOM.render(<App />, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.unregister()

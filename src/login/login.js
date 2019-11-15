@@ -1,26 +1,26 @@
-import React from 'react';
-
+import React from 'react'
+import {
+  BrowserRouter as Router, Link
+} from 'react-router-dom'
 
 class Login extends React.Component {
-    render(){
-        return (
-            <div className='loginBox'>
-                <div className='signInText'>
-                    <p>Sign in</p>
-                    <p>Please choose your country and enter your full phone number.</p>
-                </div>
-                <div className='username'>
-                    <input />
-                </div>
-                <div className='password'>
-                    <input />
-                </div>
-                <div className='signInButton'>Sign in</div>
-            </div>
-        )
-    }
+  render () {
+    return (
+      <div className='loginBox'>
+        <div className='signInText'>
+          <p>Sign in</p>
+          <p>Please enter your email and password.</p>
+        </div>
+        <div className='username'>
+          <input type='email' />
+        </div>
+        <div className='password'>
+          <input type='password' />
+        </div>
+        <div className='signInButton'><Link to='/im/'>Sign in</Link></div>
+      </div>
+    )
+  }
 }
 
 export default Login
-
-
