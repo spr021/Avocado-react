@@ -17,7 +17,7 @@ class Login extends React.Component {
         <div className='password'>
           <input type='password' />
         </div>
-        <div className='signInButton'><Link to='/im/'>Sign in</Link></div>
+        <div className='signInButton'><Link className='signInLink' to='/im/'>Sign in</Link></div>
       </div>
     )
   }
