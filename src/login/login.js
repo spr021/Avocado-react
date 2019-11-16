@@ -14,17 +14,17 @@ class Login extends React.Component {
             <p>Sign in</p>
             <p>Please enter your email address and password.</p>
           </div>
-          <div className='username'>
-            <input type='email' />
+          <div>
+            <input className='email' type='email' placeholder='E-mail' />
           </div>
-          <div className='password'>
-            <input type='password' />
+          <div>
+            <input className='password' type='password' placeholder='Password' />
           </div>
           <div className='signInButton'>
             <Link className='signInLink' to='/im/'>Sign in</Link>
             <div className='forgotText'>
               <Link className='forgotPassword' to='/forgot-password/'>Forgot Password?</Link>
-              <p>Don't have an account?<Link className='signUpLink' to='/sign-up/'>Sign up</Link></p>
+              <div>Don't have an account?<Link className='signUpLink' to='/sign-up/'>Sign up</Link></div>
             </div>
           </div>
         </div>

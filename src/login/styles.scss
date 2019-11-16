@@ -28,7 +28,7 @@ $selectandnew: rgb(255,118,85);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     background: #fff;
     box-shadow: 1px 1px #dfe5ec;
     border-radius: 5px;
@@ -40,7 +40,7 @@ $selectandnew: rgb(255,118,85);
     padding-top: 40px;
     margin-top: -45px;
     .signInText{
-        
+        flex-grow: 1;
         p{
             font-family: $font;
             font-size: 1em;
@@ -51,16 +51,56 @@ $selectandnew: rgb(255,118,85);
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+        flex-grow: 1;
         .signInLink{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
             color: #000;
             text-decoration: none;
             background-color: $darkgreen;
+            border-radius: 5px;
+            width: 60px;
+            height: 40px;
+
         }
         .forgotText{
             padding: 5px;
-            p{
-                margin: 4px 0 4px 0 ;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            a{
+                
+                
             }
         }
+    }
+    .email{
+        width: 200px;
+        height: 30px;
+        border: 0px solid #fff;
+        background-color: $bgchatbox;
+        padding: 0 10px;
+        margin: 5px 0;
+    }
+    .email:focus{
+        border: 0px solid #fff;
+        background-color: $bgchatbox;
+        outline: none;
+    }
+    .password{
+        width: 200px;
+        height: 30px;
+        border: 0px solid #fff;
+        background-color: $bgchatbox;
+        padding: 0 10px;
+        margin: 5px 0;
+    }
+    .password:focus{
+        border: 0px solid #fff;
+        background-color: $bgchatbox;
+        outline: none;
     }
 }
