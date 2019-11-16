@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Login from './login/login'
 import Container from './index/container'
+import SignUp from './signup/signUp'
+import ForgotPassword from './forgotPassword/forgotPassword'
 import './index/components/styles.scss'
 import './login/styles.scss'
 import * as serviceWorker from './serviceWorker'
@@ -18,6 +20,12 @@ class App extends React.Component {
         <Switch>
           <Route path='/im/'>
             <Container />
+          </Route>
+          <Route path='/sign-up/'>
+            <SignUp />
+          </Route>
+          <Route path='/forgot-password/'>
+            <ForgotPassword />
           </Route>
           <Route path='/'>
             <Login />

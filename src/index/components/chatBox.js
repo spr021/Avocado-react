@@ -9,71 +9,71 @@ class ChatBox extends React.Component {
     this.state = {
       chatText: [
         {
-          myText: true,
+          id: 1,
           text: 'salam'
         },
         {
-          myText: true,
+          id: 2,
           text: 'rwq'
         },
         {
-          myText: false,
+          id: 3,
           text: 'asf'
         },
         {
-          myText: false,
+          id: 1,
           text: 'vbnk'
         },
         {
-          myText: true,
+          id: 2,
           text: 'tryykgm'
         },
         {
-          myText: false,
+          id: 1,
           text: 'dsfdf'
         },
         {
-          myText: true,
+          id: 3,
           text: 'salfgam'
         },
         {
-          myText: false,
+          id: 1,
           text: 'dfgdfgs'
         },
         {
-          myText: true,
+          id: 2,
           text: 'salfgam'
         },
         {
-          myText: true,
+          id: 3,
           text: 'salfgam'
         },
         {
-          myText: true,
+          id: 1,
           text: 'salfgam'
         },
         {
-          myText: false,
+          id: 2,
           text: 'salfgam'
         },
         {
-          myText: true,
+          id: 3,
           text: 'salfgam'
         },
         {
-          myText: false,
+          id: 2,
           text: 'salfgam'
         },
         {
-          myText: false,
+          id: 1,
           text: 'salfgam'
         },
         {
-          myText: true,
+          id: 3,
           text: 'salfgam'
         },
         {
-          myText: false,
+          id: 2,
           text: 'salfgam'
         }
       ]
@@ -84,8 +84,8 @@ class ChatBox extends React.Component {
     return (
       <div className='chat-text' id='chat-text'>
         <div id='chating'>
-          {this.state.chatText.map((text) => {
-            return (text.myText === true ? <MyMsg text={text.text} /> : <YourMsg text={text.text} />)
+          {this.state.chatText.map((obj) => {
+            return (obj.id === 1 ? <MyMsg text={obj.text} /> : <YourMsg text={obj.text} />)
           })}
         </div>
       </div>

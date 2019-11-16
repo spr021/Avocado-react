@@ -23,8 +23,8 @@ class Login extends React.Component {
           <div className='signInButton'>
             <Link className='signInLink' to='/im/'>Sign in</Link>
             <div className='forgotText'>
-              <p>Forgot Password?</p>
-              <p>Don't have an account? Sign up</p>
+              <Link className='forgotPassword' to='/forgot-password/'>Forgot Password?</Link>
+              <p>Don't have an account?<Link className='signUpLink' to='/sign-up/'>Sign up</Link></p>
             </div>
           </div>
         </div>
