@@ -1,4 +1,7 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import conversation from './reducer/conversation'
 import ReactDOM from 'react-dom'
 import Login from './login/login'
 import Container from './index/container'
@@ -13,26 +16,29 @@ import {
   Route
 } from 'react-router-dom'
 
+const store = createStore(conversation)
+
 class App extends React.Component {
   render () {
     return (
-      <Router>
-        <Switch>
-          <Route path='/im/'>
-            <Container />
-          </Route>
-          <Route path='/sign-up/'>
-            <SignUp />
-          </Route>
-          <Route path='/forgot-password/'>
-            <ForgotPassword />
-          </Route>
-          <Route path='/'>
-            <Login />
-          </Route>
-        </Switch>
-      </Router>
-
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route path='/im/'>
+              <Container />
+            </Route>
+            <Route path='/sign-up/'>
+              <SignUp />
+            </Route>
+            <Route path='/forgot-password/'>
+              <ForgotPassword />
+            </Route>
+            <Route path='/'>
+              <Login />
+            </Route>
+          </Switch>
+        </Router>
+      </Provider>
     )
   }
 }

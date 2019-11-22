@@ -1,7 +1,6 @@
 import React from 'react'
 // import './styles.css';
 import Person from './person'
-
 import funnel from '../img/funnel.png'
 import search from '../img/search.png'
 import Boy from '../img/avatars/boy.png'
@@ -13,6 +12,7 @@ import Men1 from '../img/avatars/man-1.png'
 import Men2 from '../img/avatars/man-2.png'
 import Men3 from '../img/avatars/man-3.png'
 import Men4 from '../img/avatars/man-4.png'
+// import { format } from 'util'
 
 class Contacts extends React.Component {
   constructor () {
@@ -89,7 +89,6 @@ class Contacts extends React.Component {
           datePm: '5 min',
           newPm: '3'
         }
-        
       ]
     }
   }
@@ -120,5 +119,4 @@ class Contacts extends React.Component {
     )
   }
 }
-
 export default Contacts

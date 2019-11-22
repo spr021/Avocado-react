@@ -1,5 +1,5 @@
 import React from 'react'
-// import './styles.css';
+import { connect } from 'react-redux'
 import Avatar from '../img/avatars/girl-1.png'
 import Contact from '../img/contact.png'
 import Star from '../img/star.png'
@@ -15,7 +15,7 @@ class Account extends React.Component {
           <div className='profile-img'>
             <img src={Avatar} />
           </div>
-          <div className='username'>maryam</div>
+          <div className='username'>{this.props.nickName}</div>
         </div>
         <div>
           <div className='new-msg'>
@@ -38,5 +38,10 @@ class Account extends React.Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return ({
+    nickName: state.name
+  })
+}
 
-export default Account
+export default connect(mapStateToProps)(Account)

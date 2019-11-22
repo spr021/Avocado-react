@@ -1,9 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { sendNameToHeader } from '../../action/contacts'
 
 class Person extends React.Component {
   render () {
     return (
-      <div className='person'>
+      <div className='person' onClick={() => this.props.dispatch(sendNameToHeader(this.props.nickName))}>
         <div className='ct-line' />
         <div className='img-profile'>
           <img src={this.props.imgProfile} />
@@ -23,4 +25,8 @@ class Person extends React.Component {
   }
 }
 
-export default Person
+const mapDispatchToProbs = (dispatch) => ({
+  dispatch: dispatch
+})
+
+export default connect(mapDispatchToProbs)(Person)
