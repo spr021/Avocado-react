@@ -5,7 +5,7 @@ import { sendNameToHeader } from '../../action/contacts'
 class Person extends React.Component {
   render () {
     return (
-      <div className='person' onClick={() => this.props.dispatch(sendNameToHeader(this.props.nickName))}>
+      <div className='person' onClick={() => this.props.dispatch(sendNameToHeader(this.props.nickName, this.props.imgProfile))}>
         <div className='ct-line' />
         <div className='img-profile'>
           <img src={this.props.imgProfile} />

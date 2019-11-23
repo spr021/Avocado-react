@@ -1,5 +1,5 @@
 import React from 'react'
-// import './styles.css';
+import { connect } from 'react-redux'
 import MyMsg from './myChat'
 import YourMsg from './yourChat'
 
@@ -84,8 +84,10 @@ class ChatBox extends React.Component {
     return (
       <div className='chat-text' id='chat-text'>
         <div id='chating'>
-          {this.state.chatText.map((obj) => {
-            return (obj.id === 1 ? <MyMsg text={obj.text} /> : <YourMsg text={obj.text} />)
+          {this.props.chatText.map((obj) => {
+            console.log('###', this.props.chatText)
+            console.log('@@@', obj)
+            return (obj.id === 1 ? <MyMsg text={obj.pm} /> : <YourMsg text={obj.pm} />)
           })}
         </div>
       </div>
@@ -93,4 +95,8 @@ class ChatBox extends React.Component {
   }
 }
 
-export default ChatBox
+const mapStateToProps = (state) => ({
+  chatText: [state.massageList]
+})
+
+export default connect(mapStateToProps)(ChatBox)

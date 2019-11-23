@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Avatar from '../img/avatars/girl-1.png'
 import Contact from '../img/contact.png'
 import Star from '../img/star.png'
 import Information from '../img/information.png'
@@ -13,7 +12,7 @@ class Account extends React.Component {
       <div className='account'>
         <div onClick='profileView()'>
           <div className='profile-img'>
-            <img src={Avatar} />
+            <img src={this.props.profImg} />
           </div>
           <div className='username'>{this.props.nickName}</div>
         </div>
@@ -38,10 +37,9 @@ class Account extends React.Component {
     )
   }
 }
-const mapStateToProps = (state) => {
-  return ({
-    nickName: state.name
-  })
-}
+const mapStateToProps = (state) => ({
+  nickName: state.name,
+  profImg: state.profImg
+})
 
 export default connect(mapStateToProps)(Account)

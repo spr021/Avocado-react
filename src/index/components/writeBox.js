@@ -1,11 +1,18 @@
 import React from 'react'
-// import './styles.css';
-
+import { connect } from 'react-redux'
+import { sendPmToChatBox } from '../../action/sendPm'
 import Attachment from '../img/attachment.png'
 import Happiness from '../img/happiness.png'
 import PaperPlane from '../img/paper-plane.png'
 
 class WriteBox extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      pm: ''
+    }
+  }
+
   render () {
     return (
       <div className='write-box'>
@@ -13,12 +20,12 @@ class WriteBox extends React.Component {
           <img src={Attachment} />
         </div>
         <div className='write-box-chat'>
-          <input onkeydown='send(event)' id='my-talk' type='text' placeholder='write your massage ...' />
+          <input onChange={(event) => this.setState({ pm: event.target.value })} onkeydown='send(event)' id='my-talk' type='text' placeholder='write your massage ...' />
         </div>
         <div className='emoji'>
           <img src={Happiness} />
         </div>
-        <div onClick='chat()' className='send-pm' id='send-pm'>
+        <div onClick={() => this.props.dispatch(sendPmToChatBox(this.state.pm))} className='send-pm' id='send-pm'>
           <img src={PaperPlane} />
         </div>
       </div>
@@ -26,4 +33,8 @@ class WriteBox extends React.Component {
   }
 }
 
-export default WriteBox
+const mapDispatchToProbs = (dispatch) => ({
+  dispatch: dispatch
+})
+
+export default connect(mapDispatchToProbs)(WriteBox)
