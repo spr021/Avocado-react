@@ -96,7 +96,7 @@ class ChatBox extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  chatText: [state.massageList]
+  chatText: state.massageList
 })
 
 export default connect(mapStateToProps)(ChatBox)
