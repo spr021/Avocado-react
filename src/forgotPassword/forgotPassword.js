@@ -5,7 +5,7 @@ class ForgotPassword extends React.Component {
     return (
       <>
         <div className='loginLogo'><img src={logo} /></div>
-        <div className='loginBox'></div>
+        <div className='loginBox' />
       </>
     )
   }

@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import axios from 'axios'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import conversation from './reducer/conversation'
@@ -9,6 +10,7 @@ import SignUp from './signup/signUp'
 import ForgotPassword from './forgotPassword/forgotPassword'
 import './index/components/styles.scss'
 import './login/styles.scss'
+import Setting from './settings/settings'
 import * as serviceWorker from './serviceWorker'
 import {
   BrowserRouter as Router,
@@ -32,6 +34,9 @@ class App extends React.Component {
             </Route>
             <Route path='/forgot-password/'>
               <ForgotPassword />
+            </Route>
+            <Route path='/setting/'>
+              <Setting />
             </Route>
             <Route path='/'>
               <Login />

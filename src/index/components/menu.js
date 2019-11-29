@@ -6,6 +6,10 @@ import group from '../img/group.png'
 import channel from '../img/channel.png'
 import file from '../img/file.png'
 import settings from '../img/settings.png'
+import {
+  BrowserRouter as Router, Link
+} from 'react-router-dom'
+
 
 class Menu extends React.Component {
   render () {
@@ -17,7 +21,9 @@ class Menu extends React.Component {
         <div className='menu-item'><img className='img-logo' src={group} /></div>
         <div className='menu-item'><img className='img-logo' src={channel} /></div>
         <div className='menu-item'><img className='img-logo' src={file} /></div>
-        <div className='menu-item menu-item-setting'><img className='img-logo' src={settings} /></div>
+        <Link to='/setting/'>
+          <div className='menu-item menu-item-setting'><img className='img-logo' src={settings} /></div>
+        </Link>
       </div>
     )
   }
