@@ -3,6 +3,10 @@ const initial = {
   profImg: '',
   massageList: []
 }
+export function sum (a, b) {
+  return a + b
+}
+module.exports = sum
 const conversation = (state = initial, action) => {
   switch (action.type) {
     case 'NAME_TO_HEADER':
