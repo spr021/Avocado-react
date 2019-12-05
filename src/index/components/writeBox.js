@@ -13,6 +13,13 @@ class WriteBox extends React.Component {
     }
   }
 
+  send (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault()
+      document.getElementById('send-pm').click()
+    }
+  }
+
   render () {
     return (
       <div className='write-box'>
@@ -20,12 +27,19 @@ class WriteBox extends React.Component {
           <img src={Attachment} />
         </div>
         <div className='write-box-chat'>
-          <input onChange={(event) => this.setState({ pm: event.target.value })} onkeydown='send(event)' id='my-talk' type='text' placeholder='write your massage ...' />
+          <input onChange={(event) => this.setState({ pm: event.target.value })} onkeydown={(event) => this.send(event)} id='my-talk' type='text' placeholder='write your massage ...' />
         </div>
         <div className='emoji'>
           <img src={Happiness} />
         </div>
-        <div onClick={() => this.props.dispatch(sendPmToChatBox(this.state.pm))} className='send-pm' id='send-pm'>
+        <div
+          onClick={() => {
+            this.props.dispatch(sendPmToChatBox(this.state.pm))
+            document.getElementById('my-talk').value = ''
+          }}
+          className='send-pm'
+          id='send-pm'
+        >
           <img src={PaperPlane} />
         </div>
       </div>

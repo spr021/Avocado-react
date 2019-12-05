@@ -10,7 +10,6 @@ import {
   BrowserRouter as Router, Link
 } from 'react-router-dom'
 
-
 class Menu extends React.Component {
   render () {
     return (

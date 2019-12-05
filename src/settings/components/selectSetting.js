@@ -17,7 +17,7 @@ class SelectSetting extends React.Component {
           <input name='search' className='search-box' title='search' type='search' placeholder='Search' />
         </div>
         <div className='sl-line' />
-        
+
       </div>
     )
   }

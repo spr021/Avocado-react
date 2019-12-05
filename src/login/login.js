@@ -2,11 +2,50 @@ import React from 'react'
 import logo from '../login/logo2.png'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import axios from 'axios'
+import { withRouter } from 'react-router'
+import CircularProgress from '@material-ui/core/CircularProgress'
+// import { usePromiseTracker } from 'react-promise-tracker'
 import {
   BrowserRouter as Router, Link
 } from 'react-router-dom'
 
+const LoadingIndicator = (props) => {
+  return (
+    <CircularProgress />
+  )
+}
+
 class Login extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      loading: '',
+      email: '',
+      password: ''
+    }
+  }
+
+  handleClick () {
+    this.setState({ ...this.state, loading: true })
+    axios.post('http://click.7grid.ir/auth/signin/', {
+      email: this.state.email,
+      password: this.state.password
+    })
+      .then((response) => {
+        window.localStorage.setItem('token', response.data.data.token)
+        console.log('state', this.state)
+        
+        this.props.history.push('/im/')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+      .finally(() => {
+        this.setState({ ...this.state, loading: false })
+      })
+  }
+
   render () {
     return (
       <>
@@ -17,13 +56,14 @@ class Login extends React.Component {
             <p>Please enter your email address and password.</p>
           </div>
           <div>
-            <TextField className='email-login' id='outlined-required' label='E-mail' variant='outlined' />
+            <TextField onChange={(event) => this.setState({ ...this.state, email: event.target.value })} className='email-login' id='outlined-required' label='E-mail' variant='outlined' />
+            {this.state.loading === true ? <CircularProgress /> : ''}
           </div>
           <div>
-            <TextField className='password-login' id='outlined-password-input' label='Password' type='password' autoComplete='current-password' variant='outlined' />
+            <TextField onChange={(event) => this.setState({ ...this.state, password: event.target.value })} className='password-login' id='outlined-password-input' label='Password' type='password' autoComplete='current-password' variant='outlined' />
           </div>
           <div className='signInButton'>
-            <Link to='/im/'><Button className='button-login' variant='contained' color='primary'>Sing in</Button></Link>
+            {/* <Link to='/im/'> */}<Button onClick={() => this.handleClick()} className='button-login' variant='contained' color='primary'>Sing in</Button>{/* </Link> */}
             <div className='forgotText'>
               <Link className='forgotPassword' to='/forgot-password/'>Forgot Password?</Link>
               <div>Don't have an account?<Link className='signUpLink' to='/sign-up/'> Sign up</Link></div>
@@ -35,4 +75,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+export default withRouter(Login)
