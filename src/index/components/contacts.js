@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import { saveConversationList } from '../../action/saveConversationList'
 // import './styles.css';
 import Person from './person'
 import funnel from '../img/funnel.png'
@@ -16,8 +18,8 @@ import Men4 from '../img/avatars/man-4.png'
 // import { format } from 'util'
 
 class Contacts extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       contacts: [
         {
@@ -104,8 +106,9 @@ class Contacts extends React.Component {
         token: window.localStorage.getItem('token')
       }
     })
-      .then(function (response) {
-        console.log('####################', response)
+      .then((response) => {
+        console.log('(((((((((((((', response.data.data)
+        this.props.dispatch(saveConversationList(response.data.data))
       })
       .catch(function (error) {
         console.log(error)
@@ -138,4 +141,13 @@ class Contacts extends React.Component {
     )
   }
 }
-export default Contacts
+
+const mapDispatchToProbs = (dispatch) => ({
+  dispatch: dispatch
+})
+
+const mapStateToProps = (state) => ({
+  convList: state.convList
+})
+
+export default connect(mapStateToProps, mapDispatchToProbs)(Contacts)

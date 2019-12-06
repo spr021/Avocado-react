@@ -5,16 +5,9 @@ import Button from '@material-ui/core/Button'
 import axios from 'axios'
 import { withRouter } from 'react-router'
 import CircularProgress from '@material-ui/core/CircularProgress'
-// import { usePromiseTracker } from 'react-promise-tracker'
 import {
   BrowserRouter as Router, Link
 } from 'react-router-dom'
-
-const LoadingIndicator = (props) => {
-  return (
-    <CircularProgress />
-  )
-}
 
 class Login extends React.Component {
   constructor () {
@@ -35,7 +28,6 @@ class Login extends React.Component {
       .then((response) => {
         window.localStorage.setItem('token', response.data.data.token)
         console.log('state', this.state)
-        
         this.props.history.push('/im/')
       })
       .catch((error) => {
@@ -57,10 +49,12 @@ class Login extends React.Component {
           </div>
           <div>
             <TextField onChange={(event) => this.setState({ ...this.state, email: event.target.value })} className='email-login' id='outlined-required' label='E-mail' variant='outlined' />
-            {this.state.loading === true ? <CircularProgress /> : ''}
           </div>
           <div>
             <TextField onChange={(event) => this.setState({ ...this.state, password: event.target.value })} className='password-login' id='outlined-password-input' label='Password' type='password' autoComplete='current-password' variant='outlined' />
+          </div>
+          <div className='progress-bar'>
+            {this.state.loading === true ? <CircularProgress /> : ''}
           </div>
           <div className='signInButton'>
             {/* <Link to='/im/'> */}<Button onClick={() => this.handleClick()} className='button-login' variant='contained' color='primary'>Sing in</Button>{/* </Link> */}
