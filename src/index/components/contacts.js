@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { saveConversationList } from '../../action/saveConversationList'
-// import './styles.css';
 import Person from './person'
 import funnel from '../img/funnel.png'
 import search from '../img/search.png'
@@ -15,7 +14,6 @@ import Men1 from '../img/avatars/man-1.png'
 import Men2 from '../img/avatars/man-2.png'
 import Men3 from '../img/avatars/man-3.png'
 import Men4 from '../img/avatars/man-4.png'
-// import { format } from 'util'
 
 class Contacts extends React.Component {
   constructor (props) {
@@ -146,8 +144,4 @@ const mapDispatchToProbs = (dispatch) => ({
   dispatch: dispatch
 })
 
-const mapStateToProps = (state) => ({
-  convList: state.convList
-})
-
-export default connect(mapStateToProps, mapDispatchToProbs)(Contacts)
+export default connect(mapDispatchToProbs)(Contacts)

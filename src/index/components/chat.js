@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 // import './styles.scss';
 import Account from './account'
 import ChatBox from './chatBox'
@@ -11,11 +12,14 @@ class Chat extends React.Component {
         <Account />
         <div className='tc-line' />
         <ChatBox />
-        <div className='tc-line' />
-        <WriteBox />
+        {this.props.profile !== '' ? <><div className='tc-line' /><WriteBox /></> : ''}
       </div>
     )
   }
 }
 
-export default Chat
+const mapStateToProps = (state) => ({
+  profile: state.name
+})
+
+export default connect(mapStateToProps)(Chat)

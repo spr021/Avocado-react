@@ -51,4 +51,8 @@ const mapDispatchToProbs = (dispatch) => ({
   dispatch: dispatch
 })
 
-export default connect(mapDispatchToProbs)(WriteBox)
+const mapStateToProps = (state) => ({
+  chatText: state.massageList
+})
+
+export default connect(mapStateToProps, mapDispatchToProbs)(WriteBox)

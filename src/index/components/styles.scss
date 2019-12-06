@@ -295,6 +295,10 @@ $deep-spring-bud: rgba(78, 111, 47, 1);
     flex-direction: column;
     justify-content: flex-start;
     overflow: auto;
+    .select-chat{
+        margin-top: 200px;
+        text-align: center;
+    }
     .msg-you{
         margin: 5px;
         display: flex;

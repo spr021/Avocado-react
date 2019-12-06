@@ -7,76 +7,6 @@ class ChatBox extends React.Component {
   constructor () {
     super()
     this.state = {
-      chatText: [
-        {
-          id: 1,
-          text: 'salam'
-        },
-        {
-          id: 2,
-          text: 'rwq'
-        },
-        {
-          id: 3,
-          text: 'asf'
-        },
-        {
-          id: 1,
-          text: 'vbnk'
-        },
-        {
-          id: 2,
-          text: 'tryykgm'
-        },
-        {
-          id: 1,
-          text: 'dsfdf'
-        },
-        {
-          id: 3,
-          text: 'salfgam'
-        },
-        {
-          id: 1,
-          text: 'dfgdfgs'
-        },
-        {
-          id: 2,
-          text: 'salfgam'
-        },
-        {
-          id: 3,
-          text: 'salfgam'
-        },
-        {
-          id: 1,
-          text: 'salfgam'
-        },
-        {
-          id: 2,
-          text: 'salfgam'
-        },
-        {
-          id: 3,
-          text: 'salfgam'
-        },
-        {
-          id: 2,
-          text: 'salfgam'
-        },
-        {
-          id: 1,
-          text: 'salfgam'
-        },
-        {
-          id: 3,
-          text: 'salfgam'
-        },
-        {
-          id: 2,
-          text: 'salfgam'
-        }
-      ]
     }
   }
 
@@ -84,9 +14,9 @@ class ChatBox extends React.Component {
     return (
       <div className='chat-text' id='chat-text'>
         <div id='chating'>
+          {this.props.nickName === '' ? <p className='select-chat'>Please select a chat to start messaging</p> : ''}
+          {console.log('AAAAAAAAAAA', this.props.chatText)}
           {this.props.chatText.map((obj) => {
-            console.log('###', this.props.chatText)
-            console.log('@@@', obj)
             return (obj.id === 1 ? <MyMsg text={obj.pm} /> : <YourMsg text={obj.pm} />)
           })}
         </div>
@@ -96,7 +26,8 @@ class ChatBox extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  chatText: state.massageList
+  chatText: state.massageList,
+  nickName: state.name
 })
 
 export default connect(mapStateToProps)(ChatBox)

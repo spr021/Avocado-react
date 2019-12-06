@@ -14,6 +14,7 @@ class Account extends React.Component {
           <div className='profile-img'>
             <img src={this.props.profImg} />
           </div>
+          {console.log('!@#$%^&*', this.props.nickName)}
           <div className='username'>{this.props.nickName}</div>
         </div>
         <div>
