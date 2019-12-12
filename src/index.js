@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import logger from 'redux-logger'
+import { createStore } from 'redux'
 import conversation from './reducer/conversation'
 import Login from './login/login'
 import Container from './index/container'
@@ -18,7 +17,7 @@ import {
   Route
 } from 'react-router-dom'
 
-const store = createStore(conversation, applyMiddleware(logger))
+const store = createStore(conversation, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 class App extends React.Component {
   render () {
