@@ -1,33 +1,24 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import MyMsg from './myChat'
 import YourMsg from './yourChat'
 
-class ChatBox extends React.Component {
-  constructor () {
-    super()
-    this.state = {
-    }
-  }
+function ChatBox () {
+  const massageList = useSelector(state => state.saveMassageList)
+  const chatText = useSelector(state => state.massageList)
+  const nickName = useSelector(state => state.name)
 
-  render () {
-    return (
-      <div className='chat-text' id='chat-text'>
-        <div id='chating'>
-          {this.props.nickName === '' ? <p className='select-chat'>Please select a chat to start messaging</p> : ''}
-          {console.log('AAAAAAAAAAA', this.props.chatText)}
-          {this.props.chatText.map((obj) => {
-            return (obj.id === 1 ? <MyMsg text={obj.pm} /> : <YourMsg text={obj.pm} />)
-          })}
-        </div>
+  return (
+    <div className='chat-text' id='chat-text'>
+      <div id='chating'>
+        {nickName === '' ? <p className='select-chat'>Please select a chat to start messaging</p> : ''}
+        {console.log('AAAAAAAAAAA', chatText)}
+        {chatText.map((obj) => {
+          return (obj.id === 1 ? <MyMsg text={obj.pm} /> : <YourMsg text={obj.pm} />)
+        })}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
-const mapStateToProps = (state) => ({
-  chatText: state.massageList,
-  nickName: state.name
-})
-
-export default connect(mapStateToProps)(ChatBox)
+export default ChatBox

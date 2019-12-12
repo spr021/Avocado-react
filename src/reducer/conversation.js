@@ -2,7 +2,8 @@ const initial = {
   name: '',
   profImg: '',
   massageList: [],
-  convList: []
+  convList: [],
+  saveMassageList: []
 }
 const conversation = (state = initial, action) => {
   switch (action.type) {
@@ -27,6 +28,11 @@ const conversation = (state = initial, action) => {
       return {
         ...state,
         convList: action.convList
+      }
+    case 'MASSAGE_LIST':
+      return {
+        ...state,
+        saveMassageList: action.massageList
       }
     default:
       return state

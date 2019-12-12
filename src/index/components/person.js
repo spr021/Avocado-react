@@ -1,32 +1,47 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import axios from 'axios'
+import { useDispatch } from 'react-redux'
 import { sendNameToHeader } from '../../action/contacts'
+import { MassageList } from '../../action/loadMassageList'
 
-class Person extends React.Component {
-  render () {
-    return (
-      <div className='person' onClick={() => this.props.dispatch(sendNameToHeader(this.props.nickName, this.props.imgProfile))}>
-        <div className='ct-line' />
-        <div className='img-profile'>
-          <img src={this.props.imgProfile} />
+function Person (props) {
+  function loadPerson () {
+    dispatch(sendNameToHeader(props.nickName, props.imgProfile))
+
+    axios.post('http://click.7grid.ir/conversation/details/', {
+      token: window.localStorage.getItem('token'),
+      conversation_id: '',
+      size: 40,
+      date: ''
+    })
+      .then((response) => {
+        dispatch(MassageList(response.data))
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  const dispatch = useDispatch()
+
+  return (
+    <div className='person' onClick={() => loadPerson()}>
+      <div className='ct-line' />
+      <div className='img-profile'>
+        <img src={props.imgProfile} />
+      </div>
+      <div className='ct-info'>
+        <div>
+          <div className='nick-name'>{props.nickName}</div>
+          <div className='date-pm'>{props.datePm}</div>
         </div>
-        <div className='ct-info'>
-          <div>
-            <div className='nick-name'>{this.props.nickName}</div>
-            <div className='date-pm'>{this.props.datePm}</div>
-          </div>
-          <div>
-            <div className='last-pm'>{this.props.lastPm}</div>
-            <div className='new-pm'><span>{this.props.newPm}</span></div>
-          </div>
+        <div>
+          <div className='last-pm'>{props.lastPm}</div>
+          <div className='new-pm'><span>{props.newPm}</span></div>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
-const mapDispatchToProbs = (dispatch) => ({
-  dispatch: dispatch
-})
-
-export default connect(mapDispatchToProbs)(Person)
+export default Person
