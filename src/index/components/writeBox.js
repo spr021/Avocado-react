@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import axios from 'axios'
 import { sendPmToChatBox } from '../../action/sendPm'
+import { listOfMassage } from '../../action/listOfMassage'
 import Attachment from '../img/attachment.png'
 import Happiness from '../img/happiness.png'
 import PaperPlane from '../img/paper-plane.png'
@@ -13,6 +15,25 @@ function WriteBox () {
   const dispatch = useDispatch()
   const chatText = useSelector(state => state.massageList)
 
+  function sendPm () {
+    if (document.getElementById('my-talk').value !== '') {
+      dispatch(sendPmToChatBox(pm.pm))
+      document.getElementById('my-talk').value = ''
+      setPm({ pm: '' })
+    }
+
+    axios.post('http://click.7grid.ir/conversation/create/', {
+      token: window.localStorage.getItem('token'),
+      conversation_id: '',
+      text: ''
+    })
+      .then((response) => {
+        dispatch(listOfMassage(response.data))
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
   function send (event) {
     if (event.keyCode === 13) {
       event.preventDefault()
@@ -32,13 +53,7 @@ function WriteBox () {
         <img src={Happiness} />
       </div>
       <div
-        onClick={() => {
-          if (document.getElementById('my-talk').value !== '') {
-            dispatch(sendPmToChatBox(pm.pm))
-            document.getElementById('my-talk').value = ''
-            setPm({ pm: '' })
-          }
-        }}
+        onClick={() => sendPm()}
         className='send-pm'
         id='send-pm'
       >

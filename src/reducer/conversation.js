@@ -1,9 +1,12 @@
+import Axios from "axios"
+
 const initial = {
   name: '',
   profImg: '',
   massageList: [],
   convList: [],
-  saveMassageList: []
+  saveMassageList: [],
+  massageOfList: []
 }
 const conversation = (state = initial, action) => {
   switch (action.type) {
@@ -33,6 +36,11 @@ const conversation = (state = initial, action) => {
       return {
         ...state,
         saveMassageList: action.massageList
+      }
+    case 'LIST_OF_MASSAGE':
+      return {
+        ...state,
+        massageOfList: action.massage
       }
     default:
       return state
