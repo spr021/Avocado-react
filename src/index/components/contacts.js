@@ -92,7 +92,7 @@ function Contacts () {
   })
 
   const dispatch = useDispatch()
-
+  const darkMod = useSelector(state => state.lightMod)
   const key = useSelector(state => state.convList)
 
   function search (event) {
@@ -114,7 +114,7 @@ function Contacts () {
   }, [])
 
   return (
-    <div className='contacts'>
+    <div className={darkMod === true ? 'contacts-dark-mod' : 'contacts'}>
       <div className='info'>
         <div className='name-page'>chat</div>
         <div className='sort'>

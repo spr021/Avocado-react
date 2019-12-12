@@ -1,12 +1,11 @@
-import Axios from "axios"
-
 const initial = {
   name: '',
   profImg: '',
   massageList: [],
   convList: [],
   saveMassageList: [],
-  massageOfList: []
+  massageOfList: [],
+  lightMod: false
 }
 const conversation = (state = initial, action) => {
   switch (action.type) {
@@ -41,6 +40,11 @@ const conversation = (state = initial, action) => {
       return {
         ...state,
         massageOfList: action.massage
+      }
+    case 'CHANGE_LIGHT_MOD':
+      return {
+        ...state,
+        lightMod: action.mod
       }
     default:
       return state

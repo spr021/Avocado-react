@@ -9,6 +9,7 @@ import SignUp from './signup/signUp'
 import ForgotPassword from './forgotPassword/forgotPassword'
 import './index/components/styles.scss'
 import './login/styles.scss'
+import './settings/components/styles.scss'
 import Setting from './settings/settings'
 import * as serviceWorker from './serviceWorker'
 import {

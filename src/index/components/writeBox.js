@@ -14,6 +14,7 @@ function WriteBox () {
 
   const dispatch = useDispatch()
   const chatText = useSelector(state => state.massageList)
+  const darkMod = useSelector(state => state.lightMod)
 
   function sendPm () {
     if (document.getElementById('my-talk').value !== '') {
@@ -42,7 +43,7 @@ function WriteBox () {
   }
 
   return (
-    <div className='write-box'>
+    <div className={darkMod === true ? 'write-box-dark-mod' : 'write-box'}>
       <div className='attach'>
         <img src={Attachment} />
       </div>

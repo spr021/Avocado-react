@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { sendNameToHeader } from '../../action/contacts'
 import { MassageList } from '../../action/loadMassageList'
 
@@ -23,10 +23,10 @@ function Person (props) {
   }
 
   const dispatch = useDispatch()
+  const darkMod = useSelector(state => state.lightMod)
 
   return (
-    <div className='person' onClick={() => loadPerson()}>
-      <div className='ct-line' />
+    <div className={darkMod === true ? 'person-dark-mod' : 'person'} onClick={() => loadPerson()}>
       <div className='img-profile'>
         <img src={props.imgProfile} />
       </div>

@@ -1,11 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-class ChangeSetting extends React.Component {
-  render () {
-    return (
-      <div className='chat' />
-    )
-  }
+function ChangeSetting () {
+  const darkMod = useSelector(state => state.lightMod)
+
+  return (
+    <div className={darkMod === true ? 'chat-dark-mod' : 'chat'}>
+      <span> </span>
+    </div>
+  )
 }
 
 export default ChangeSetting

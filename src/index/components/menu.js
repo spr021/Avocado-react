@@ -14,7 +14,9 @@ class Menu extends React.Component {
   render () {
     return (
       <div className='menu'>
-        <div className='logo'><img className='img-logo' src={logo2} /></div>
+        <Link to='/im/'>
+          <div className='logo'><img className='img-logo' src={logo2} /></div>
+        </Link>
         <div className='menu-item'><img className='img-logo' src={contacts} /></div>
         <div className='menu-item'><img className='img-logo' src={chat} /></div>
         <div className='menu-item'><img className='img-logo' src={group} /></div>

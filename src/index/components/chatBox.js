@@ -7,9 +7,10 @@ function ChatBox () {
   const massageList = useSelector(state => state.saveMassageList)
   const chatText = useSelector(state => state.massageList)
   const nickName = useSelector(state => state.name)
+  const darkMod = useSelector(state => state.lightMod)
 
   return (
-    <div className='chat-text' id='chat-text'>
+    <div className={darkMod === true ? 'chat-text-dark-mod' : 'chat-text'} id='chat-text'>
       <div id='chating'>
         {nickName === '' ? <p className='select-chat'>Please select a chat to start messaging</p> : ''}
         {console.log('AAAAAAAAAAA', chatText)}
