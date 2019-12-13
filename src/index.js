@@ -7,9 +7,11 @@ import Login from './login/login'
 import Container from './index/container'
 import SignUp from './signup/signUp'
 import ForgotPassword from './forgotPassword/forgotPassword'
+import NotFound404 from './notFound/notFound'
 import './index/components/styles.scss'
 import './login/styles.scss'
 import './settings/components/styles.scss'
+import './notFound/styles.scss'
 import Setting from './settings/settings'
 import * as serviceWorker from './serviceWorker'
 import {
@@ -38,8 +40,11 @@ class App extends React.Component {
             <Route path='/setting/'>
               <Setting />
             </Route>
-            <Route path='/'>
+            <Route exact path='/'>
               <Login />
+            </Route>
+            <Route path='*'>
+              <NotFound404 />
             </Route>
           </Switch>
         </Router>
