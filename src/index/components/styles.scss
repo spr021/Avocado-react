@@ -26,6 +26,20 @@ $deep-spring-bud: rgba(78, 111, 47, 1);
     border-bottom: 1px solid #d2dbe3;
     overflow: hidden;
 }
+.container-blur-mod{
+    display: flex;
+    filter: blur(3px);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: $bgwhite;
+    box-shadow: 1px 1px #dfe5ec;
+    border-radius: 5px;
+    border-left: 1px solid #dfe5ec;
+    border-right: 1px solid #dfe5ec;
+    border-bottom: 1px solid #d2dbe3;
+    overflow: hidden;
+}
 .menu{
     display: flex;
     flex-direction: column;

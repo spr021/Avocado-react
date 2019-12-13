@@ -5,7 +5,8 @@ const initial = {
   convList: [],
   saveMassageList: [],
   massageOfList: [],
-  lightMod: false
+  lightMod: false,
+  blurMod: false
 }
 const conversation = (state = initial, action) => {
   switch (action.type) {
@@ -45,6 +46,11 @@ const conversation = (state = initial, action) => {
       return {
         ...state,
         lightMod: action.mod
+      }
+    case 'CHANGE_BLUR_MOD':
+      return {
+        ...state,
+        blurMod: action.mod
       }
     default:
       return state
