@@ -1,5 +1,6 @@
-export const sendNameToHeader = (name, profImg) => ({
+export const sendNameToHeader = (name, profImg, id) => ({
   type: 'NAME_TO_HEADER',
-  name: name,
-  profImg: profImg
+  name,
+  profImg,
+  id
 })

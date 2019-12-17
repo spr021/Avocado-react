@@ -1,20 +1,128 @@
 const initial = {
-  name: '',
+  name: ['', ''],
   profImg: '',
+  id: '',
   massageList: [],
-  convList: [],
-  saveMassageList: [],
+  saveMassageList: [{
+    sender: {
+      id: 6,
+      avatar_url: 'http://api.paywith.click//media/default.jpg',
+      flag_url: 'https://www.countryflags.io/None/flat/64.png',
+      cover_url: 'http://api.paywith.click//media/cover.jpg',
+      name: null,
+      first_name: null,
+      middle_name: null,
+      last_name: null,
+      phone_number: null,
+      email: 'saber@pourrahimi.me',
+      description: null,
+      user_type: null,
+      location_lat: null,
+      location_long: null,
+      address: null,
+      country_code: null,
+      mobile_number: null,
+      website: null,
+      promoted: false,
+      verified: false,
+      bitcoin_wallet_address: null
+    },
+    receiver: {
+      id: 2,
+      avatar_url: 'http://api.paywith.click//media/default.jpg',
+      flag_url: 'https://www.countryflags.io/None/flat/64.png',
+      cover_url: 'http://api.paywith.click//media/cover.jpg',
+      name: null,
+      first_name: null,
+      middle_name: null,
+      last_name: null,
+      phone_number: null,
+      email: 'zahra@kabiri.com',
+      description: null,
+      user_type: null,
+      location_lat: null,
+      location_long: null,
+      address: null,
+      country_code: null,
+      mobile_number: null,
+      website: null,
+      promoted: false,
+      verified: false,
+      bitcoin_wallet_address: null
+    },
+    date: '2019-12-16T11:37:28.212226',
+    text: 'salam'
+  }],
   massageOfList: [],
   lightMod: false,
-  blurMod: false
+  blurMod: false,
+  conversation_details: [{
+    latest_message: null,
+    latest_message_date: '2019-12-13T17:21:20.556805',
+    id: 10,
+    users: [
+      {
+        id: 6,
+        avatar_url: 'http://api.paywith.click//media/default.jpg',
+        flag_url: 'https://www.countryflags.io/None/flat/64.png',
+        cover_url: 'http://api.paywith.click//media/cover.jpg',
+        name: null,
+        first_name: null,
+        middle_name: null,
+        last_name: null,
+        phone_number: null,
+        email: 'saber@pourrahimi.me',
+        description: null,
+        user_type: null,
+        location_lat: null,
+        location_long: null,
+        address: null,
+        country_code: null,
+        mobile_number: null,
+        website: null,
+        promoted: false,
+        verified: false,
+        bitcoin_wallet_address: null
+      },
+      {
+        id: 5,
+        avatar_url: 'http://api.paywith.click//media/default.jpg',
+        flag_url: 'https://www.countryflags.io/None/flat/64.png',
+        cover_url: 'http://api.paywith.click//media/cover.jpg',
+        name: null,
+        first_name: null,
+        middle_name: null,
+        last_name: null,
+        phone_number: null,
+        email: '',
+        description: null,
+        user_type: null,
+        location_lat: null,
+        location_long: null,
+        address: null,
+        country_code: null,
+        mobile_number: null,
+        website: null,
+        promoted: false,
+        verified: false,
+        bitcoin_wallet_address: null
+      }
+    ],
+    unseen_messages: {
+      6: 0,
+      5: 0
+    }
+  }]
 }
+
 const conversation = (state = initial, action) => {
   switch (action.type) {
     case 'NAME_TO_HEADER':
       return {
         ...state,
         name: action.name,
-        profImg: action.profImg
+        profImg: action.profImg,
+        id: action.id
       }
     case 'SEND_PM_TO_CHATBOX':
       return {
@@ -22,15 +130,14 @@ const conversation = (state = initial, action) => {
         massageList: [
           ...state.massageList,
           {
-            pm: action.pm,
-            id: 1
+            pm: action.pm
           }
         ]
       }
     case 'SAVE_CONV':
       return {
         ...state,
-        convList: action.convList
+        conversation_details: action.convList
       }
     case 'MASSAGE_LIST':
       return {

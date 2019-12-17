@@ -17,8 +17,7 @@ function Account () {
         <div className='profile-img'>
           <img src={profImg} />
         </div>
-        {console.log('!@#$%^&*', nickName)}
-        <div className='username'>{nickName}</div>
+        <div className='username'>{nickName[1].slice(0, 12)}</div>
       </div>
       <div>
         <div className='new-msg'>

@@ -13,9 +13,8 @@ function ChatBox () {
     <div className={darkMod === true ? 'chat-text-dark-mod' : 'chat-text'} id='chat-text'>
       <div id='chating'>
         {nickName === '' ? <p className='select-chat'>Please select a chat to start messaging</p> : ''}
-        {console.log('AAAAAAAAAAA', chatText)}
-        {chatText.map((obj) => {
-          return (obj.id === 1 ? <MyMsg text={obj.pm} /> : <YourMsg text={obj.pm} />)
+        {massageList.map((obj) => {
+          return (obj.sender.id == window.localStorage.getItem('id') ? <MyMsg text={obj.text} /> : <YourMsg text={obj.text} />)
         })}
       </div>
     </div>

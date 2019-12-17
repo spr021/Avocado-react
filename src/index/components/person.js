@@ -3,27 +3,33 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { sendNameToHeader } from '../../action/contacts'
 import { MassageList } from '../../action/loadMassageList'
+const moment = require('moment')
+const FormData = require('form-data')
 
 function Person (props) {
-  function loadPerson () {
-    dispatch(sendNameToHeader(props.nickName, props.imgProfile))
+  const dispatch = useDispatch()
+  const darkMod = useSelector(state => state.lightMod)
 
-    axios.post('http://click.7grid.ir/conversation/details/', {
-      token: window.localStorage.getItem('token'),
-      conversation_id: '',
-      size: 40,
-      date: ''
-    })
+  function loadPerson () {
+    dispatch(sendNameToHeader(props.nickName, props.imgProfile, props.convId))
+
+    const now = new Date()
+    const secondsSinceEpoch = Math.round(now.getTime() / 1000)
+
+    const fdata = new FormData()
+    fdata.append('token', window.localStorage.getItem('token'))
+    fdata.append('conversation_id', props.convId)
+    fdata.append('size', 40)
+    fdata.append('date', secondsSinceEpoch)
+
+    axios.post('http://click.7grid.ir/conversation/details/', fdata)
       .then((response) => {
-        dispatch(MassageList(response.data))
+        dispatch(MassageList(response.data.data.messages))
       })
       .catch(function (error) {
         console.log(error)
       })
   }
-
-  const dispatch = useDispatch()
-  const darkMod = useSelector(state => state.lightMod)
 
   return (
     <div className={darkMod === true ? 'person-dark-mod' : 'person'} onClick={() => loadPerson()}>
@@ -32,8 +38,8 @@ function Person (props) {
       </div>
       <div className='ct-info'>
         <div>
-          <div className='nick-name'>{props.nickName}</div>
-          <div className='date-pm'>{props.datePm}</div>
+          <div className='nick-name'>{props.nickName[1].slice(0, 6) + '...'}</div>
+          <div className='date-pm'>{moment(props.datePm).fromNow()}</div>
         </div>
         <div>
           <div className='last-pm'>{props.lastPm}</div>

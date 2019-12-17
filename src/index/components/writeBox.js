@@ -6,6 +6,7 @@ import { listOfMassage } from '../../action/listOfMassage'
 import Attachment from '../img/attachment.png'
 import Happiness from '../img/happiness.png'
 import PaperPlane from '../img/paper-plane.png'
+const FormData = require('form-data')
 
 function WriteBox () {
   const [pm, setPm] = useState({
@@ -15,6 +16,7 @@ function WriteBox () {
   const dispatch = useDispatch()
   const chatText = useSelector(state => state.massageList)
   const darkMod = useSelector(state => state.lightMod)
+  const conversationId = useSelector(state => state.id)
 
   function sendPm () {
     if (document.getElementById('my-talk').value !== '') {
@@ -23,11 +25,13 @@ function WriteBox () {
       setPm({ pm: '' })
     }
 
-    axios.post('http://click.7grid.ir/conversation/create/', {
-      token: window.localStorage.getItem('token'),
-      conversation_id: '',
-      text: ''
-    })
+    const fdata = new FormData()
+    fdata.append('token', window.localStorage.getItem('token'))
+    fdata.append('conversation_id', conversationId)
+    console.log('SDSDDSDSDSD', conversationId)
+    fdata.append('text', pm.pm)
+
+    axios.post('http://click.7grid.ir/conversation/create/', fdata)
       .then((response) => {
         dispatch(listOfMassage(response.data))
       })
