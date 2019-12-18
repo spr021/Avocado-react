@@ -14,7 +14,9 @@ function ChatBox () {
       <div id='chating'>
         {nickName === '' ? <p className='select-chat'>Please select a chat to start messaging</p> : ''}
         {massageList.map((obj) => {
-          return (obj.sender.id == window.localStorage.getItem('id') ? <MyMsg text={obj.text} /> : <YourMsg text={obj.text} />)
+          if (obj.sender.id !== null) {
+            return (obj.sender.id == window.localStorage.getItem('id') ? <MyMsg key={obj.date} text={obj.text} /> : <YourMsg key={obj.date} text={obj.text} />)
+          }
         })}
       </div>
     </div>

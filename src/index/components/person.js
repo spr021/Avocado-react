@@ -38,7 +38,8 @@ function Person (props) {
       </div>
       <div className='ct-info'>
         <div>
-          <div className='nick-name'>{props.nickName[1].slice(0, 6) + '...'}</div>
+          {/* <div className='nick-name'>{props.nickName.slice(0, 6) + '...'}</div> */}
+          <div className='nick-name'>{props.nickName + '...'}</div>
           <div className='date-pm'>{moment(props.datePm).fromNow()}</div>
         </div>
         <div>

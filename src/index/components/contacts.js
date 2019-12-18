@@ -1,18 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveConversationList } from '../../action/saveConversationList'
 import Person from './person'
 import funnel from '../img/funnel.png'
-import search from '../img/search.png'
+import searchh from '../img/search.png'
+import FormData from 'form-data'
 
 function Contacts () {
+  const [search, setSearch] = useState({
+    search: []
+  })
   const dispatch = useDispatch()
   const darkMod = useSelector(state => state.lightMod)
   const convList = useSelector(state => state.conversation_details)
   const id = window.localStorage.getItem('id')
-  function search (event) {
 
+  function searchUsers (event) {
+    if (event) {
+      const data = new FormData()
+      data.append('token', window.localStorage.getItem('token'))
+      data.append('query', event)
+      data.append('size', 5)
+
+      axios.post('http://click.7grid.ir/explore/search/contacts/', data)
+        .then((response) => {
+          setSearch({ search: response.data.data.users })
+          console.log('seeeeerch', response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
   }
 
   useEffect(() => {
@@ -39,14 +58,37 @@ function Contacts () {
         </div>
       </div>
       <div className='search'>
-        <img className='img-search' src={search} />
-        <input onChange={(event) => search(event.target.value)} name='search' className='search-box' title='search' type='search' placeholder='Search' />
+        <img className='img-search' src={searchh} />
+        <input onChange={(event) => searchUsers(event.target.value)} name='search' className='search-box' title='search' type='search' placeholder='Search' />
       </div>
       <div className='sl-line' />
       <div className='list-of-contact'>
+        {
+          search.search.map((user) => {
+            return (
+              <p key={user.id}>{user.email}</p>
+            )
+          })
+        }
         {convList.map((conv) => {
           return (
-            <Person key={conv.id} convId={conv.id} nickName={conv.users.map((e) => e.id != id ? e.email : '')} datePm={conv.latest_message_date} lastPm={conv.latest_message} newPm={conv.newPm} imgProfile={conv.users.map((e) => e.avatar_url)} />
+            conv.users.map((user) => {
+              if (user.id != window.localStorage.getItem('id')) {
+                return (
+                  <Person
+                    key={conv.id}
+                    convId={conv.id}
+                    nickName={user.email}
+                    datePm={conv.latest_message_date}
+                    lastPm={conv.latest_message}
+                    newPm={conv.newPm}
+                    imgProfile={user.avatar_url}
+                  />
+                )
+              } else {
+                return null
+              }
+            })
           )
         })}
       </div>

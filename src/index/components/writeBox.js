@@ -23,21 +23,20 @@ function WriteBox () {
       dispatch(sendPmToChatBox(pm.pm))
       document.getElementById('my-talk').value = ''
       setPm({ pm: '' })
+
+      const fdata = new FormData()
+      fdata.append('token', window.localStorage.getItem('token'))
+      fdata.append('conversation_id', conversationId)
+      fdata.append('text', pm.pm)
+
+      axios.post('http://click.7grid.ir/conversation/create/', fdata)
+        .then((response) => {
+          dispatch(listOfMassage(response.data))
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
-
-    const fdata = new FormData()
-    fdata.append('token', window.localStorage.getItem('token'))
-    fdata.append('conversation_id', conversationId)
-    console.log('SDSDDSDSDSD', conversationId)
-    fdata.append('text', pm.pm)
-
-    axios.post('http://click.7grid.ir/conversation/create/', fdata)
-      .then((response) => {
-        dispatch(listOfMassage(response.data))
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
   }
   function send (event) {
     if (event.keyCode === 13) {
@@ -52,7 +51,13 @@ function WriteBox () {
         <img src={Attachment} />
       </div>
       <div className='write-box-chat'>
-        <input onChange={(event) => setPm({ pm: event.target.value })} onKeyDown={(event) => send(event)} id='my-talk' type='text' placeholder='write your massage ...' />
+        <input
+          onChange={(event) => setPm({ pm: event.target.value })}
+          onKeyDown={(event) => send(event)}
+          id='my-talk'
+          type='text'
+          placeholder='write your massage ...'
+        />
       </div>
       <div className='emoji'>
         <img src={Happiness} />

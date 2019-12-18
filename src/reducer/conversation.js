@@ -1,20 +1,20 @@
 const initial = {
-  name: ['', ''],
+  name: '',
   profImg: '',
   id: '',
   massageList: [],
   saveMassageList: [{
     sender: {
-      id: 6,
-      avatar_url: 'http://api.paywith.click//media/default.jpg',
-      flag_url: 'https://www.countryflags.io/None/flat/64.png',
-      cover_url: 'http://api.paywith.click//media/cover.jpg',
+      id: null,
+      avatar_url: null,
+      flag_url: null,
+      cover_url: null,
       name: null,
       first_name: null,
       middle_name: null,
       last_name: null,
       phone_number: null,
-      email: 'saber@pourrahimi.me',
+      email: null,
       description: null,
       user_type: null,
       location_lat: null,
@@ -28,16 +28,16 @@ const initial = {
       bitcoin_wallet_address: null
     },
     receiver: {
-      id: 2,
-      avatar_url: 'http://api.paywith.click//media/default.jpg',
-      flag_url: 'https://www.countryflags.io/None/flat/64.png',
-      cover_url: 'http://api.paywith.click//media/cover.jpg',
+      id: null,
+      avatar_url: null,
+      flag_url: null,
+      cover_url: null,
       name: null,
       first_name: null,
       middle_name: null,
       last_name: null,
       phone_number: null,
-      email: 'zahra@kabiri.com',
+      email: null,
       description: null,
       user_type: null,
       location_lat: null,
@@ -50,15 +50,15 @@ const initial = {
       verified: false,
       bitcoin_wallet_address: null
     },
-    date: '2019-12-16T11:37:28.212226',
-    text: 'salam'
+    date: null,
+    text: null
   }],
   massageOfList: [],
   lightMod: false,
   blurMod: false,
   conversation_details: [{
     latest_message: null,
-    latest_message_date: '2019-12-13T17:21:20.556805',
+    latest_message_date: null,
     id: 10,
     users: [
       {
