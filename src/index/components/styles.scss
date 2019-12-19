@@ -186,6 +186,18 @@ $deep-spring-bud: rgba(78, 111, 47, 1);
     justify-content: flex-start;
     align-items: stretch;
     overflow: auto;
+    .search-member{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 7px 0 7px 20px;
+        font-size: 14px;
+        text-shadow: 1px 1px #ccc;
+    }
+    .search-member:hover{
+        color: $darkMod;
+    }
 }
 .person{
     display: flex;
@@ -236,7 +248,7 @@ $deep-spring-bud: rgba(78, 111, 47, 1);
         align-items: center;
         
         .nick-name{
-            font-size: 10px;
+            font-size: 15px;
         }
         .date-pm{
             font-size: 10px;

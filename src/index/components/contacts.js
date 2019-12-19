@@ -34,6 +34,20 @@ function Contacts () {
     }
   }
 
+  function selectChat (userId) {
+    var fdata = new FormData()
+    fdata.append('token', window.localStorage.getItem('token'))
+    fdata.append('user_id', userId)
+
+    axios.post('http://click.7grid.ir/conversation/', fdata)
+      .then((response) => {
+        console.log('res::', response.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
   useEffect(() => {
     axios.get('http://click.7grid.ir/conversation/', {
       params: {
@@ -41,6 +55,7 @@ function Contacts () {
       }
     })
       .then((response) => {
+        console.log('conv::::', response.data)
         dispatch(saveConversationList(response.data.data.conversation_details))
       })
       .catch(function (error) {
@@ -66,14 +81,14 @@ function Contacts () {
         {
           search.search.map((user) => {
             return (
-              <p key={user.id}>{user.email}</p>
+              <p onClick={() => selectChat(user.id)} className='search-member' key={user.id}>{user.email}</p>
             )
           })
         }
         {convList.map((conv) => {
           return (
             conv.users.map((user) => {
-              if (user.id != window.localStorage.getItem('id')) {
+              if (user.id != id) {
                 return (
                   <Person
                     key={conv.id}

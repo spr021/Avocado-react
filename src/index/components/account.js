@@ -17,7 +17,7 @@ function Account () {
         <div className='profile-img'>
           <img src={profImg} />
         </div>
-        <div className='username'>{nickName}</div>
+        {nickName !== null ? <div className='username'>{nickName.slice(0, 8) + '...'}</div> : <div className='username'>{nickName + '...'}</div>}
       </div>
       <div>
         <div className='new-msg'>
