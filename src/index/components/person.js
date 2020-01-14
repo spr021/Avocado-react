@@ -12,7 +12,7 @@ function Person (props) {
 
   function loadPerson () {
     dispatch(sendNameToHeader(props.nickName, props.imgProfile, props.convId))
-
+    window.localStorage.setItem('conversation_id', props.convId)
     const now = new Date()
     const secondsSinceEpoch = Math.round(now.getTime() / 1000)
 
@@ -30,7 +30,6 @@ function Person (props) {
         console.log(error)
       })
   }
-
   return (
     <div className={darkMod === true ? 'person-dark-mod' : 'person'} onClick={() => loadPerson()}>
       <div className='img-profile'>
@@ -39,7 +38,7 @@ function Person (props) {
       <div className='ct-info'>
         <div>
           {props.nickName !== null ? <div className='nick-name'>{props.nickName.slice(0, 8) + '...'}</div> : <div className='nick-name'>{props.nickName + '...'}</div>}
-          <div className='date-pm'>{moment(props.datePm).fromNow()}</div>
+          <div className='date-pm'>{moment(new Date(props.datePm).getTime() + 12600000).fromNow()}</div>
         </div>
         <div>
           <div className='last-pm'>{props.lastPm}</div>

@@ -2,6 +2,8 @@ const initial = {
   name: '',
   profImg: '',
   id: '',
+  lastPmDatepm: '',
+  newMassgeList: [],
   massageList: [],
   saveMassageList: [{
     sender: {
@@ -57,61 +59,8 @@ const initial = {
   lightMod: false,
   blurMod: false,
   conversation_details: [{
-    latest_message: null,
-    latest_message_date: null,
-    id: 10,
-    users: [
-      {
-        id: 6,
-        avatar_url: 'http://api.paywith.click//media/default.jpg',
-        flag_url: 'https://www.countryflags.io/None/flat/64.png',
-        cover_url: 'http://api.paywith.click//media/cover.jpg',
-        name: null,
-        first_name: null,
-        middle_name: null,
-        last_name: null,
-        phone_number: null,
-        email: 'saber@pourrahimi.me',
-        description: null,
-        user_type: null,
-        location_lat: null,
-        location_long: null,
-        address: null,
-        country_code: null,
-        mobile_number: null,
-        website: null,
-        promoted: false,
-        verified: false,
-        bitcoin_wallet_address: null
-      },
-      {
-        id: 5,
-        avatar_url: 'http://api.paywith.click//media/default.jpg',
-        flag_url: 'https://www.countryflags.io/None/flat/64.png',
-        cover_url: 'http://api.paywith.click//media/cover.jpg',
-        name: null,
-        first_name: null,
-        middle_name: null,
-        last_name: null,
-        phone_number: null,
-        email: '',
-        description: null,
-        user_type: null,
-        location_lat: null,
-        location_long: null,
-        address: null,
-        country_code: null,
-        mobile_number: null,
-        website: null,
-        promoted: false,
-        verified: false,
-        bitcoin_wallet_address: null
-      }
-    ],
-    unseen_messages: {
-      6: 0,
-      5: 0
-    }
+    users: [],
+    unseen_messages: {}
   }]
 }
 
@@ -137,7 +86,8 @@ const conversation = (state = initial, action) => {
     case 'SAVE_CONV':
       return {
         ...state,
-        conversation_details: action.convList
+        conversation_details: action.convList,
+        lastPmDatepm: Math.floor((new Date(action.convList[0].latest_message_date).getTime() + 12600) / 1000)
       }
     case 'MASSAGE_LIST':
       return {
@@ -158,6 +108,16 @@ const conversation = (state = initial, action) => {
       return {
         ...state,
         blurMod: action.mod
+      }
+    case 'SAVE_NEW_MASSAGE':
+      return {
+        ...state,
+        newMassgeList: action.massageList
+      }
+    case 'SAVE_NEW_PM':
+      return {
+        ...state,
+        saveMassageList: action.massageList
       }
     default:
       return state

@@ -14,8 +14,9 @@ function Contacts () {
   const dispatch = useDispatch()
   const darkMod = useSelector(state => state.lightMod)
   const convList = useSelector(state => state.conversation_details)
+  const lastPmDate = useSelector(state => state.lastPmDatepm)
+  window.localStorage.setItem('lastPmDate', lastPmDate)
   const id = window.localStorage.getItem('id')
-
   function searchUsers (event) {
     if (event) {
       const data = new FormData()
@@ -26,7 +27,6 @@ function Contacts () {
       axios.post('http://click.7grid.ir/explore/search/contacts/', data)
         .then((response) => {
           setSearch({ search: response.data.data.users })
-          console.log('seeeeerch', response)
         })
         .catch(function (error) {
           console.log(error)
@@ -41,7 +41,6 @@ function Contacts () {
 
     axios.post('http://click.7grid.ir/conversation/', fdata)
       .then((response) => {
-        console.log('res::', response.data)
       })
       .catch(function (error) {
         console.log(error)
@@ -55,7 +54,6 @@ function Contacts () {
       }
     })
       .then((response) => {
-        console.log('conv::::', response.data)
         dispatch(saveConversationList(response.data.data.conversation_details))
       })
       .catch(function (error) {
@@ -95,7 +93,7 @@ function Contacts () {
                     convId={conv.id}
                     nickName={user.email}
                     datePm={conv.latest_message_date}
-                    lastPm={conv.latest_message}
+                    lastPm={conv.unseen_messages[id]}
                     newPm={conv.newPm}
                     imgProfile={user.avatar_url}
                   />
