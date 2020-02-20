@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/Avocado-react/static/css/main.2b4dbd92.chunk.css",
+    "main.js": "/Avocado-react/static/js/main.faaedb13.chunk.js",
+    "main.js.map": "/Avocado-react/static/js/main.faaedb13.chunk.js.map",
+    "runtime-main.js": "/Avocado-react/static/js/runtime-main.36eba893.js",
+    "runtime-main.js.map": "/Avocado-react/static/js/runtime-main.36eba893.js.map",
+    "static/js/2.a0d4c4c5.chunk.js": "/Avocado-react/static/js/2.a0d4c4c5.chunk.js",
+    "static/js/2.a0d4c4c5.chunk.js.map": "/Avocado-react/static/js/2.a0d4c4c5.chunk.js.map",
+    "index.html": "/Avocado-react/index.html",
+    "precache-manifest.1e70f519da74525063fe36998a93e9e9.js": "/Avocado-react/precache-manifest.1e70f519da74525063fe36998a93e9e9.js",
+    "service-worker.js": "/Avocado-react/service-worker.js",
+    "static/css/main.2b4dbd92.chunk.css.map": "/Avocado-react/static/css/main.2b4dbd92.chunk.css.map",
+    "static/media/boy.png": "/Avocado-react/static/media/boy.388e4750.png",
+    "static/media/channel.png": "/Avocado-react/static/media/channel.e90af249.png",
+    "static/media/chat.png": "/Avocado-react/static/media/chat.9a8e2c24.png",
+    "static/media/contact.png": "/Avocado-react/static/media/contact.e889c776.png",
+    "static/media/contacts.png": "/Avocado-react/static/media/contacts.2bd485fc.png",
+    "static/media/file.png": "/Avocado-react/static/media/file.367bafcb.png",
+    "static/media/funnel.png": "/Avocado-react/static/media/funnel.03b14324.png",
+    "static/media/girl-1.png": "/Avocado-react/static/media/girl-1.74da0721.png",
+    "static/media/group.png": "/Avocado-react/static/media/group.509e10f9.png",
+    "static/media/happiness.png": "/Avocado-react/static/media/happiness.8d0b15d3.png",
+    "static/media/information.png": "/Avocado-react/static/media/information.0053c47f.png",
+    "static/media/logo2.png": "/Avocado-react/static/media/logo2.f84b45d8.png",
+    "static/media/paper-plane.png": "/Avocado-react/static/media/paper-plane.0049ad95.png",
+    "static/media/settings.png": "/Avocado-react/static/media/settings.8c468822.png",
+    "static/media/star.png": "/Avocado-react/static/media/star.60bd8b29.png"
+  }
+}
