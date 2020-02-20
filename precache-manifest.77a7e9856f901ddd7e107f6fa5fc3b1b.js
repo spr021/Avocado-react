@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "efce5337bc9cb4df00b1cb184691da30",
+    "revision": "515a31d97dfb1ede39d301cdb547067b",
     "url": "/Avocado-react/index.html"
   },
   {
-    "revision": "421971c0f7cda0bd956e",
+    "revision": "9cb33ec4fb159d8094d6",
     "url": "/Avocado-react/static/css/main.2b4dbd92.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Avocado-react/static/js/2.a0d4c4c5.chunk.js"
   },
   {
-    "revision": "421971c0f7cda0bd956e",
-    "url": "/Avocado-react/static/js/main.b057743c.chunk.js"
+    "revision": "9cb33ec4fb159d8094d6",
+    "url": "/Avocado-react/static/js/main.4ca8307a.chunk.js"
   },
   {
     "revision": "bd4e519986b2bb79dcda",
