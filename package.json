@@ -7,7 +7,7 @@
     "axios": "^0.21.1",
     "form-data": "^3.0.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-lottie": "^1.2.3",
